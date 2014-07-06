@@ -27,3 +27,5 @@
 *.x86_64
 *.hex
 *.mot
+
+.lvimrc
