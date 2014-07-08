@@ -67,7 +67,7 @@
 #define FREERTOS_CONFIG_H
 
 /* IO definitions for the chosen device. */
-#include <2329S.h>
+#include "H83069F.h"
 
 /*-----------------------------------------------------------
  * Application specific definitions.

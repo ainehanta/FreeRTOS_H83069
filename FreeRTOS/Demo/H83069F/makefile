@@ -93,7 +93,7 @@ $(DEMO_PATH)/comtest.c \
 $(DEMO_PATH)/PollQ.c
 SOURCE_ASM =
 
-CFLAGS=-mh -mrelax -mint32 $(OPT) $(DEBUG) $(INCLUDES) -DGCC_H8300 $(WARNINGS)
+CFLAGS=-mh -mrelax -mint32 $(OPT) $(DEBUG) $(INCLUDES) -DGCC_H83069F $(WARNINGS)
 
 LDFLAGS = -T $(LDSCRIPT) -nostartfiles -Wl,-Map,$(MAP_FILE)
 
