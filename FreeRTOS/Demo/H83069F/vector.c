@@ -27,7 +27,7 @@ void vCOM_1_Error_ISR( void );
 
 
 typedef void (*fp) (void);
-#define VECT_SECT          __attribute__ ((section (".vects")))
+#define VECT_SECT          __attribute__ ((section (".vector")))
 
 const fp HardwareVectors[] VECT_SECT = {
 start,		/*  vector 0 */
