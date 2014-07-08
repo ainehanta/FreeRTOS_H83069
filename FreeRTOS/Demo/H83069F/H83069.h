@@ -1,6 +1,7 @@
 #ifndef __H83069_H
 #define __H83069_H
 
+/* Register */
 #define __REG(x)	( *( ( volatile unsigned char * ) (x) ) )
 
 #define MDCR		__REG(0xfee011)
@@ -190,5 +191,11 @@
 #define DADR1		__REG(0xffff9d)
 #define DACR		__REG(0xffff9e)
 #define DASTCR		__REG(0xfee01A)
+
+/* Interrupt and Ram Execute Utillity */
+#define ENINT()   asm volatile ("andc.b #0x7f,ccr") 
+#define ENINT1()  asm volatile ("andc.b #0xbf,ccr") 
+#define DISINT()  asm volatile ("orc.b #0x80,ccr")
+#define ROMEMU()  RAMCR=0xf8
 
 #endif
