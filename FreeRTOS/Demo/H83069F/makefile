@@ -52,8 +52,8 @@
 #*/
 
 
-CC=msp430-gcc
-OBJCOPY=msp430-objcopy
+CC=h8300-hms-gcc
+OBJCOPY=h8300-hms-objcopy
 DEBUG=-g
 OPT=-Os
 WARNINGS=-Wall -Wshadow -Wpointer-arith -Wbad-function-cast -Wcast-align -Wsign-compare \
