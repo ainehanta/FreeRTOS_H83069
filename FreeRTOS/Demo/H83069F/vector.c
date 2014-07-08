@@ -58,7 +58,7 @@ vPortYield,	/*  vector 8 */
 (fp)(0),	/*  vector 25 */
 (fp)(0),	/*  vector 26 */
 (fp)(0),	/*  vector 27 */
-(fp)(0),	/*  vector 28 */
+vTickISR,	/*  vector 28 */
 (fp)(0),	/*  vector 29 */
 (fp)(0),	/*  vector 30 */
 (fp)(0),	/*  vector 31 */
@@ -70,7 +70,7 @@ vPortYield,	/*  vector 8 */
 (fp)(0),	/*  vector 37 */
 (fp)(0),	/*  vector 38 */
 (fp)(0),	/*  vector 39 */
-vTickISR,	/*  vector 40 */
+(fp)(0),	/*  vector 40 */
 (fp)(0),	/*  vector 41 */
 (fp)(0),	/*  vector 42 */
 (fp)(0),	/*  vector 43 */
