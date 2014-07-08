@@ -26,8 +26,8 @@ _start:
 
 	mov.l #__ext_stack, sp
 
-__go_main:
+__call_main:
 
 	jsr @_main
 	sleep
-	bra __go_main
+	bra __call_main
