@@ -290,7 +290,7 @@ void vPortYield( void )
 		}
 
 		/* Clear the interrupt. */
-		TSR1 &= ~0x01;
+		TISRA &= ~0x02;
 
 		portRESTORE_STACK_POINTER();
 	}
@@ -308,7 +308,7 @@ void vPortYield( void )
 		xTaskIncrementTick();
 
 		/* Clear the interrupt. */
-		TSR1 &= ~0x01;
+		TISRA &= ~0x02;
 	}
 
 #endif
@@ -320,20 +320,28 @@ void vPortYield( void )
 static void prvSetupTimerInterrupt( void )
 {
 const uint32_t ulCompareMatch = ( configCPU_CLOCK_HZ / configTICK_RATE_HZ ) / portCLOCK_DIV;
+	unsigned char tmp;
 
-	/* Turn the module on. */
-	MSTPCR &= ~portMSTP13;
-
-	/* Configure timer 1. */
-	TCR1 = portCLEAR_ON_TGRA_COMPARE_MATCH | portCLOCK_DIV_64;
+	/* Stop Timer */
+	TSTR &= ~0x02;
+	/* Timer Not Sync */
+	TSNC &= ~0x02;
+	/* Timer set normal mode */
+	TMDR &= ~0x20;
+	/* Interrupt Flag Clear */
+	tmp = TISRA;
+	/* Enable Interrupt */
+	TISRA |= 0x20;
+	/* Configure compare match count clear and clock divide */
+	T16TCR1 = 0x22;
 
 	/* Configure the compare match value for a tick of configTICK_RATE_HZ. */
-	TGR1A = ulCompareMatch;
+	GRA1H = (ulCompareMatch >> 8) & 0xFF;
+	GRA1L = (ulCompareMatch) & 0xFF;
 
 	/* Start the timer and enable the interrupt - we can do this here as 
 	interrupts are globally disabled when this function is called. */
-	TIER1 |= portTGRA_INTERRUPT_ENABLE;
-	TSTR |= portTIMER_CHANNEL;
+	TSTR |= 0x02;
 }
 /*-----------------------------------------------------------*/
 

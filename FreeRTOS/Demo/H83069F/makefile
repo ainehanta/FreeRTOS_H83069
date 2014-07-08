@@ -104,7 +104,6 @@ $(SOURCE_PATH)/portable/MemMang/heap_1.c \
 $(PORT_PATH)/port.c \
 $(DEMO_PATH)/flash.c \
 $(DEMO_PATH)/integer.c \
-$(DEMO_PATH)/comtest.c \
 $(DEMO_PATH)/PollQ.c
 
 CFLAGS=-mh -mrelax -mint32 $(OPT) $(DEBUG) $(INCLUDES) -DGCC_H83069F $(WARNINGS)
@@ -124,11 +123,11 @@ $(TARGET) : $(TARGET_COFF)
 	$(OBJCOPY) -v $(OUTPUT_FORMAT) $(TARGET_COFF) $(TARGET)
 
 $(TARGET_COFF) : $(OBJ)
-	$(CC) $(CFLAGS) $(LDFLAGS) $(OBJ) -o $(TARGET_COFF)
+	$(CC) $(CFLAGS) $(LDFLAGS) *.o -o $(TARGET_COFF)
 	$(SIZE) -Ax $(TARGET_COFF)
 
 clean :
-	rm -f $(TARGET) $(TARGET_COFF) $(MAP_FILE) $(OBJ) $(STARTUP:.s=.o)
+	rm -f $(TARGET) $(TARGET_COFF) $(MAP_FILE) *.o $(STARTUP:.s=.o)
 
 .c.o:
 	$(CC) -c $(CFLAGS) $<

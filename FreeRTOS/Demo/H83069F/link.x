@@ -2,13 +2,13 @@ OUTPUT_FORMAT("coff-h8300")
 OUTPUT_ARCH(h8300h)
 ENTRY("_start")
 
-PROVIDE(_stack = 0xFFFF20)
-PROVIDE(__ext_stack = 0x600000)
+PROVIDE(_stack = 0xFFFF20);
+PROVIDE(__ext_stack = 0x600000);
 
 MEMORY
 {
-	vector	: ORIGIN = 0xFFE000, LENGTH = 0x100
-	ram		: ORIGIN = 0x400000, LENFTH = 0x1F0000
+	vector	: o = 0xFFE000, l = 0x100
+	ram		: o = 0x400000, l = 0x1F0000
 }
 
 SECTIONS
