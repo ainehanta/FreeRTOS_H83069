@@ -59,11 +59,11 @@ OPT=-Os
 WARNINGS=-Wall -Wshadow -Wpointer-arith -Wbad-function-cast -Wcast-align -Wsign-compare \
 		-Waggregate-return -Wstrict-prototypes -Wmissing-prototypes -Wmissing-declarations -Wunused
 
-CFLAGS=-mmcu=msp430x449 $(OPT) $(DEBUG) -I. -I../../Source/include -I../Common/include -DGCC_MSP430 $(WARNINGS)
+CFLAGS=-mh -mrelax -mint32 $(OPT) $(DEBUG) -I. -I../../Source/include -I../Common/include -DGCC_H8300 $(WARNINGS)
 
 # Setup paths to source code
 SOURCE_PATH = ../../Source
-PORT_PATH = ../../Source/portable/GCC/MSP430F449
+PORT_PATH = ../../Source/portable/GCC/H83069
 DEMO_PATH = ../Common/Minimal
 
 #
