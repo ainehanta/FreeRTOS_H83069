@@ -180,6 +180,10 @@ include path. */
 	#include "../../Source/portable/GCC/H8S2329/portmacro.h"
 #endif
 
+#ifdef GCC_H83069F
+	#include "../../Source/portable/GCC/H83069F/portmacro.h"
+#endif
+
 #ifdef GCC_AT91FR40008
 	#include "../../Source/portable/GCC/ARM7_AT91FR40008/portmacro.h"
 #endif
