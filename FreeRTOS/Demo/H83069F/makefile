@@ -77,7 +77,8 @@ OUTPUT_FORMAT = -O srec --srec-forceS3
 TARGET = h83069.mot
 LDSCRIPT = link.x
 STARTUP = start.s
-SOURCE_C = \
+SOURCE_ASM =
+#SOURCE_C = \
 main.c \
 vector.c \
 ParTest/ParTest.c \
@@ -91,7 +92,20 @@ $(DEMO_PATH)/flash.c \
 $(DEMO_PATH)/integer.c \
 $(DEMO_PATH)/comtest.c \
 $(DEMO_PATH)/PollQ.c
-SOURCE_ASM =
+
+SOURCE_C = \
+main.c \
+vector.c \
+ParTest/ParTest.c \
+$(SOURCE_PATH)/tasks.c \
+$(SOURCE_PATH)/list.c \
+$(SOURCE_PATH)/queue.c \
+$(SOURCE_PATH)/portable/MemMang/heap_1.c \
+$(PORT_PATH)/port.c \
+$(DEMO_PATH)/flash.c \
+$(DEMO_PATH)/integer.c \
+$(DEMO_PATH)/comtest.c \
+$(DEMO_PATH)/PollQ.c
 
 CFLAGS=-mh -mrelax -mint32 $(OPT) $(DEBUG) $(INCLUDES) -DGCC_H83069F $(WARNINGS)
 
