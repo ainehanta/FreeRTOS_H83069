@@ -53,24 +53,33 @@
 
 
 CC=h8300-hms-gcc
+LD = h8300-hms-ld
 OBJCOPY=h8300-hms-objcopy
+SIZE = h8300-hms-size
 DEBUG=-g
 OPT=-Os
 WARNINGS=-Wall -Wshadow -Wpointer-arith -Wbad-function-cast -Wcast-align -Wsign-compare \
 		-Waggregate-return -Wstrict-prototypes -Wmissing-prototypes -Wmissing-declarations -Wunused
 
-CFLAGS=-mh -mrelax -mint32 $(OPT) $(DEBUG) -I. -I../../Source/include -I../Common/include -DGCC_H8300 $(WARNINGS)
-
 # Setup paths to source code
 SOURCE_PATH = ../../Source
-PORT_PATH = ../../Source/portable/GCC/H83069
+PORT_PATH = ../../Source/portable/GCC/H83069F
 DEMO_PATH = ../Common/Minimal
+INCLUDES = -I. -I$(SOURCE_PATH)/include -I../Common/include
+LIBS = 
+TARGET_COFF = $(TARGET:.mot=.coff)
+MAP_FILE = $(TARGET:.mot=.map)
+OUTPUT_FORMAT = -O srec --srec-forceS3
 
 #
 # Source files that can be built to THUMB mode.
 #
-SRC = \
+TARGET = h83069.mot
+LDSCRIPT = link.x
+STARTUP = start.s
+SOURCE_C = \
 main.c \
+vector.c \
 ParTest/ParTest.c \
 serial/serial.c \
 $(SOURCE_PATH)/tasks.c \
@@ -82,29 +91,33 @@ $(DEMO_PATH)/flash.c \
 $(DEMO_PATH)/integer.c \
 $(DEMO_PATH)/comtest.c \
 $(DEMO_PATH)/PollQ.c
+SOURCE_ASM =
+
+CFLAGS=-mh -mrelax -mint32 $(OPT) $(DEBUG) $(INCLUDES) -DGCC_H8300 $(WARNINGS)
+
+LDFLAGS = -T $(LDSCRIPT) -nostartfiles -Wl,-Map,$(MAP_FILE)
+
 
 #
 # Define all object files.
 #
-OBJ = $(SRC:.c=.o)
 
-a.out : $(OBJ) makefile
-	$(CC) $(OBJ) $(CFLAGS)
+.SUFFIXES: .c .s .o 
 
-$(OBJ) : %.o : %.c makefile
-	$(CC) -c $(CFLAGS) $< -o $@	
-	
+OBJ = $(STARTUP:.s=.o) $(SOURCE_C:.c=.o) $(SOURCE_ASM:.s=.o)
+
+$(TARGET) : $(TARGET_COFF)
+	$(OBJCOPY) -v $(OUTPUT_FORMAT) $(TARGET_COFF) $(TARGET)
+
+$(TARGET_COFF) : $(OBJ)
+	$(CC) $(CFLAGS) $(LDFLAGS) $(OBJ) -o $(TARGET_COFF)
+	$(SIZE) -Ax $(TARGET_COFF)
+
 clean :
-	touch makefile
-	
+	rm -f $(TARGET) $(TARGET_COFF) $(MAP_FILE) $(OBJ) $(STARTUP:.s=.o)
 
+.c.o:
+	$(CC) -c $(CFLAGS) $<
 
-
-
-
-
-
-
-	
-
-
+.s.o:
+	$(CC) -c $(CFLAGS) $<
