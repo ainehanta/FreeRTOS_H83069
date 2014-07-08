@@ -23,7 +23,7 @@ SECTIONS
 		*(.rodata)
 		*(.strings)
 		__text_end = . ;
-	}
+	} > ram
 
 	.tors : {
 		___ctors = . ;
