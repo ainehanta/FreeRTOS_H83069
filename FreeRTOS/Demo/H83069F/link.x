@@ -7,15 +7,15 @@ PROVIDE(__ext_stack = 0x600000);
 
 MEMORY
 {
-	vector	: o = 0xFFE000, l = 0x100
+	vectors	: o = 0xFFE000, l = 0x100
 	ram		: o = 0x400000, l = 0x1F0000
 }
 
 SECTIONS
 {
-	.vector : {
-		*(.vector)
-	} > vector
+	.vectors : {
+		*(.vectors)
+	} > vectors
 
 	.text : {
 		__text_start = . ;
