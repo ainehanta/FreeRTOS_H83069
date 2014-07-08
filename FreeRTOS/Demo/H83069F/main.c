@@ -104,7 +104,7 @@
 #include "flop.h"
 #include "dynamic.h"
 #include "BlockQ.h"
-#include "serial.h"
+//#include "serial.h"
 #include "partest.h"
 
 /* Priority definitions for most of the tasks in the demo application.  Some
@@ -169,7 +169,7 @@ int main( void )
 
 	/* Start the various standard demo application tasks. */
 	vStartIntegerMathTasks( tskIDLE_PRIORITY );
-	vAltStartComTestTasks( mainCOM_TEST_PRIORITY, mainCOM_TEST_BAUD_RATE, mainCOM_TEST_LED );
+	//vAltStartComTestTasks( mainCOM_TEST_PRIORITY, mainCOM_TEST_BAUD_RATE, mainCOM_TEST_LED );
 	vStartLEDFlashTasks( mainLED_TASK_PRIORITY );
 	vStartPolledQueueTasks( mainQUEUE_POLL_PRIORITY );
 	vStartMathTasks( tskIDLE_PRIORITY );

@@ -114,9 +114,9 @@ vTickISR,	/*  vector 40 */
 (fp)(0),	/*  vector 81 */
 (fp)(0),	/*  vector 82 */
 (fp)(0),	/*  vector 83 */
-vCOM_1_Error_ISR,	/*  vector 84 */
-vCOM_1_Rx_ISR,		/*  vector 85 */
-vCOM_1_Tx_ISR,		/*  vector 86 */
+(fp)(0),	/* vCOM_1_Error_ISR, */	/*  vector 84 */
+(fp)(0),	/* vCOM_1_Rx_ISR, */		/*  vector 85 */
+(fp)(0),	/* vCOM_1_Tx_ISR, */		/*  vector 86 */
 (fp)(0),	/*  vector 87 */
 (fp)(0),	/*  vector 88 */
 (fp)(0),	/*  vector 89 */
