@@ -94,40 +94,4 @@ vTickISR,	/*  vector 28 */
 (fp)(0),	/*  vector 61 */
 (fp)(0),	/*  vector 62 */
 (fp)(0),	/*  vector 63 */
-(fp)(0),	/*  vector 64 */
-(fp)(0),	/*  vector 65 */
-(fp)(0),	/*  vector 66 */
-(fp)(0),	/*  vector 67 */
-(fp)(0),	/*  vector 68 */
-(fp)(0),	/*  vector 69 */
-(fp)(0),	/*  vector 70 */
-(fp)(0),	/*  vector 71 */
-(fp)(0),	/*  vector 72 */
-(fp)(0),	/*  vector 73 */
-(fp)(0),	/*  vector 74 */
-(fp)(0),	/*  vector 75 */
-(fp)(0),	/*  vector 76 */
-(fp)(0),	/*  vector 77 */
-(fp)(0),	/*  vector 78 */
-(fp)(0),	/*  vector 79 */
-(fp)(0),	/*  vector 80 */
-(fp)(0),	/*  vector 81 */
-(fp)(0),	/*  vector 82 */
-(fp)(0),	/*  vector 83 */
-(fp)(0),	/* vCOM_1_Error_ISR, */	/*  vector 84 */
-(fp)(0),	/* vCOM_1_Rx_ISR, */		/*  vector 85 */
-(fp)(0),	/* vCOM_1_Tx_ISR, */		/*  vector 86 */
-(fp)(0),	/*  vector 87 */
-(fp)(0),	/*  vector 88 */
-(fp)(0),	/*  vector 89 */
-(fp)(0),	/*  vector 90 */
-(fp)(0),	/*  vector 91 */
-(fp)(0),	/*  vector 92 */
-(fp)(0),	/*  vector 93 */
-(fp)(0),	/*  vector 94 */
-(fp)(0),	/*  vector 95 */
-(fp)(0),	/*  vector 96 */
-(fp)(0),	/*  vector 97 */
-(fp)(0),	/*  vector 98 */
-(fp)(0),	/*  vector 99 */
 };
