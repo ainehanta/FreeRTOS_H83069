@@ -130,8 +130,4 @@ vTickISR,	/*  vector 28 */
 (fp)(0),	/*  vector 97 */
 (fp)(0),	/*  vector 98 */
 (fp)(0),	/*  vector 99 */
-(fp)(0),	/*  vector 100 */
-(fp)(0),	/*  vector 101 */
-(fp)(0),	/*  vector 102 */
-(fp)(0)		/*  vector 103 */
 };
