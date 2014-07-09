@@ -101,10 +101,7 @@ $(SOURCE_PATH)/tasks.c \
 $(SOURCE_PATH)/list.c \
 $(SOURCE_PATH)/queue.c \
 $(SOURCE_PATH)/portable/MemMang/heap_1.c \
-$(PORT_PATH)/port.c \
-$(DEMO_PATH)/flash.c \
-$(DEMO_PATH)/integer.c \
-$(DEMO_PATH)/PollQ.c
+$(PORT_PATH)/port.c
 
 CFLAGS=-mh -mrelax -mint32 $(OPT) $(DEBUG) $(INCLUDES) -DGCC_H83069F $(WARNINGS)
 
