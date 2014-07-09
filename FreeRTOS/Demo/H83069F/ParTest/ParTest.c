@@ -93,21 +93,18 @@ void vParTestSetLED( unsigned portBASE_TYPE uxLED, signed portBASE_TYPE xValue )
 {
 	unsigned char ucLED;
 
-	if( uxLED == partstLED_LEFT || uxLED == partstLED_RIGHT )
+	ucLED = ( unsigned char ) uxLED;
+	if( xValue )
 	{
-		ucLED = ( unsigned char ) uxLED;
-		if( xValue )
-		{
-			portENTER_CRITICAL();
-			PBDR |= ucLED;
-			portEXIT_CRITICAL();
-		}
-		else
-		{
-			portENTER_CRITICAL();
-			PBDR &= ~ucLED;
-			portEXIT_CRITICAL();
-		}
+		portENTER_CRITICAL();
+		PBDR |= ucLED;
+		portEXIT_CRITICAL();
+	}
+	else
+	{
+		portENTER_CRITICAL();
+		PBDR &= ~ucLED;
+		portEXIT_CRITICAL();
 	}
 }
 /*-----------------------------------------------------------*/
@@ -116,16 +113,13 @@ void vParTestToggleLED( unsigned portBASE_TYPE uxLED )
 {
 unsigned char ucLED;
 
-	if( uxLED == partstLED_LEFT || uxLED == partstLED_RIGHT )
-	{
-		ucLED = ( unsigned char ) uxLED;
+	ucLED = ( unsigned char ) uxLED;
 
-		portENTER_CRITICAL();
-		{
-			PBDR ^= ucLED;
-		}
-		portEXIT_CRITICAL();
-	}	
+	portENTER_CRITICAL();
+	{
+		PBDR ^= ucLED;
+	}
+	portEXIT_CRITICAL();
 }
 
 
